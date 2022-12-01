@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 600px;
+    max-width: 100%;
+    margin: 100px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter-task {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+    background-color: #eee;
+}
+
+.enter-task input {
+    flex: 1;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+}
+
+.enter-task button {
+    padding: 0 20px;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    background-color: #0075ff;
+    cursor: pointer;
+}
+
+.all-tasks {
+    width: 100%;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.all-tasks .task:last-child {
+    margin-bottom: 20px;
+}
+
+.all-tasks .task {
+    background-color: white;
+    display: flex;
+    padding: 10px;
+    margin: 20px 20px 0;
+}
+
+.all-tasks .task.done {
+    background-color: #dff0d8;
+}
+
+.all-tasks .task p {
+    flex: 1;
+}
+
+.all-tasks .task p.done {
+    color: #5cb85c;
+}
+
+.all-tasks .task .done-btn,
+.all-tasks .task .del-btn {
+    padding: 5px 10px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.all-tasks .task .done-btn {
+    background-color: #5cb85c;
+    margin-right: 20px;
+}
+
+.all-tasks .task .del-btn {
+    background-color: #d9534f;
+}
