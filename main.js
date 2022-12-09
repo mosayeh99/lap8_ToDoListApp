@@ -2,7 +2,14 @@ let enterTaskFiled = document.querySelector('.enter-task input');
 let addTaskBtn = document.querySelector('.enter-task button');
 let tasksDiv = document.querySelector('.all-tasks');
 let taskObj;
-let tasksArray =[];
+
+let tasksArray;
+if (localStorage.Tasks != null) {
+    tasksArray = JSON.parse(localStorage.getItem('Tasks'));
+} else {
+    tasksArray =[];
+}
+// localStorage.clear();
 
 addTaskBtn.onclick = () => {
     if (enterTaskFiled.value != "") {
@@ -11,11 +18,13 @@ addTaskBtn.onclick = () => {
             taskStatus: false,
         }
         tasksArray.push(taskObj);
+        localStorage.setItem('Tasks', JSON.stringify(tasksArray));
         enterTaskFiled.value = "";
         tasksData();
     }
 }
 
+tasksData();
 function tasksData() {
     let countTask = 0;
     let tasks = "";
@@ -46,6 +55,7 @@ document.addEventListener('click', (e) => {
         tasksArray[+e.target.dataset.task].taskStatus = true;
     } else if (e.target.classList.contains('del-btn')) {
         tasksArray.splice(+e.target.dataset.task, 1);
+        localStorage.setItem('Tasks', JSON.stringify(tasksArray));
     }
     tasksData();
 })
